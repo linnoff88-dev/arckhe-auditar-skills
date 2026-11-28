@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Auditar Skills — measure before you rewrite</title>
-<meta name="description" content="INEMA mirror of skill-creator-plus (MIT, RoboNuggets): validate your Claude Code and Codex skills against 46 rules (most from Anthropic's official docs), with a five-step recipe, a report of the worst ones and a validation hook.">
-<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/auditar-skills/guia/">
-<link rel="alternate" hreflang="en" href="https://inematds.github.io/auditar-skills/guia/en/">
-<link rel="alternate" hreflang="es" href="https://inematds.github.io/auditar-skills/guia/es/">
+<meta name="description" content="ARCKHé AI mirror of skill-creator-plus (MIT, RoboNuggets): validate your Claude Code and Codex skills against 46 rules (most from Anthropic's official docs), with a five-step recipe, a report of the worst ones and a validation hook.">
+<link rel="alternate" hreflang="pt-BR" href="https://linnoff88-dev.github.io/auditar-skills/guia/">
+<link rel="alternate" hreflang="en" href="https://linnoff88-dev.github.io/auditar-skills/guia/en/">
+<link rel="alternate" hreflang="es" href="https://linnoff88-dev.github.io/auditar-skills/guia/es/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -39,8 +39,8 @@
   nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
   nav .brand .emoji{font-size:1.25rem}
   nav .sep{color:var(--mut);opacity:.45}
-  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
-  nav .inema:hover{filter:brightness(1.15)}
+  nav .arckhe{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .arckhe:hover{filter:brightness(1.15)}
   nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
   nav .pro:hover{filter:brightness(1.15)}
   nav .clubpro{display:inline-flex;align-items:center;gap:6px}
@@ -107,9 +107,9 @@
   <a class="brand" href="#top"><span class="emoji">🔍</span> Auditar Skills</a>
   <span class="sep">|</span>
   <span class="clubpro">
-    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <a class="arckhe" href="https://linnoff88-dev.github.io" target="_blank" rel="noopener">ARCKHé AI.CLUB</a>
     <span class="sep">-</span>
-    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+    <a class="pro" href="https://arckhe.pro" target="_blank" rel="noopener">PRO</a>
   </span>
   <div class="links">
     <a class="sec" href="#oque">What it is</a>
@@ -119,7 +119,7 @@
     <a class="sec" href="#roadmap">Roadmap</a>
     <span class="lang"><a href="../">PT</a><a class="on" href="./">EN</a><a href="../es/">ES</a></span>
     <button class="tgl" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">🌙</button>
-    <a class="btn" href="https://github.com/inematds/auditar-skills" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://github.com/linnoff88-dev/auditar-skills" target="_blank" rel="noopener">GitHub</a>
   </div>
 </div></nav>
 
@@ -132,7 +132,7 @@
       <p class="lead">46 rules, most from Anthropic's official docs and some from practice, a validator that runs in one second and a five-step recipe to find and fix the skills that fail the most, without touching anything you did not approve.</p>
       <div class="cta">
         <a class="btn" href="#guia">Start the guide</a>
-        <a class="btn ghost" href="https://github.com/inematds/auditar-skills" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn ghost" href="https://github.com/linnoff88-dev/auditar-skills" target="_blank" rel="noopener">View on GitHub</a>
       </div>
     </div>
     <figure><img src="../assets/banner-en.jpg" alt="Audit Skills banner: measure before you rewrite, 46 rules"></figure>
@@ -141,18 +141,18 @@
 
 <section id="resumo" class="resumo"><div class="wrap">
   <span class="chip">In short</span>
-  <p>Auditar Skills is an open kit to check your agent's skills, the folders with a SKILL.md file that Claude Code and Codex use to do a task the same way every time. It ships skill-creator-plus, a RoboNuggets skill that checks each skill against 46 rules (most from Anthropic's official docs, some from practice), plus a five-step INEMA recipe: run the validator, take the five worst, generate a report, test with and without the skill and turn on a hook. It is for anyone who already has several skills and does not know which ones are broken. All it needs is Python 3.8 or newer, and no skill changes without your approval.</p>
+  <p>Auditar Skills is an open kit to check your agent's skills, the folders with a SKILL.md file that Claude Code and Codex use to do a task the same way every time. It ships skill-creator-plus, a RoboNuggets skill that checks each skill against 46 rules (most from Anthropic's official docs, some from practice), plus a five-step ARCKHé AI recipe: run the validator, take the five worst, generate a report, test with and without the skill and turn on a hook. It is for anyone who already has several skills and does not know which ones are broken. All it needs is Python 3.8 or newer, and no skill changes without your approval.</p>
 </div></section>
 
 <section id="oque"><div class="wrap">
   <span class="chip">What it is</span>
   <h2>A mirror with a recipe</h2>
-  <p class="sub">The original skill-creator-plus, plus what INEMA added for day-to-day use, including a validator that understands skills written in Portuguese and Spanish.</p>
+  <p class="sub">The original skill-creator-plus, plus what ARCKHé AI added for day-to-day use, including a validator that understands skills written in Portuguese and Spanish.</p>
   <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-en.jpg" alt="Audit Skills banner: validator, 5 worst, report, with and without, hook, 46 rules" loading="lazy" style="width:100%;display:block"></figure>
   <div class="grid g3">
     <div class="card"><h3>📏 46 rules with sources</h3><p>Most come from Anthropic's official docs (skills guide, Claude Code docs, Fable 5 and Opus 5.5 prompting guide), each with its link; some, such as the NM and LB families, come from the author's practice and are marked as advice. 20 are read-only, judged by the agent.</p></div>
     <div class="card"><h3>⚡ Validator in one second</h3><p><code>validate_skill.py</code> in plain Python, nothing to install. It checks the mechanical side of one skill or a whole folder and gives the file and line of each problem. Read-only; it changes nothing.</p></div>
-    <div class="card"><h3>🧭 INEMA recipe</h3><p>Five steps so you do not audit everything at once: validator, five worst, report, test with and without, hook. With two new scripts: <code>relatorio.py</code> and <code>hook_validar.py</code>.</p></div>
+    <div class="card"><h3>🧭 ARCKHé AI recipe</h3><p>Five steps so you do not audit everything at once: validator, five worst, report, test with and without, hook. With two new scripts: <code>relatorio.py</code> and <code>hook_validar.py</code>.</p></div>
   </div>
 </div></section>
 
@@ -199,7 +199,7 @@
   <div class="step"><div class="b">1</div><div>
     <h3>Download the repository</h3>
     <p>One folder in your home directory. The next commands run from inside it.</p>
-<pre><span class="k">git clone</span> <span class="s">https://github.com/inematds/auditar-skills</span> ~/auditar-skills
+<pre><span class="k">git clone</span> <span class="s">https://github.com/linnoff88-dev/auditar-skills</span> ~/auditar-skills
 <span class="k">cd</span> ~/auditar-skills</pre>
   </div></div>
 
@@ -244,7 +244,7 @@
       <span class="s">"timeout"</span>: 60 } ]
   } ] }
 }</pre>
-    <p>Test it before turning it on: exit code 0 = no errors, 2 = errors listed. Details in <a href="https://github.com/inematds/auditar-skills/blob/main/docs/receita-inema.md" target="_blank" rel="noopener">docs/receita-inema.md</a> (in Portuguese).</p>
+    <p>Test it before turning it on: exit code 0 = no errors, 2 = errors listed. Details in <a href="https://github.com/linnoff88-dev/auditar-skills/blob/main/docs/receita-arckhe.md" target="_blank" rel="noopener">docs/receita-arckhe.md</a> (in Portuguese).</p>
 <pre><span class="k">echo</span> <span class="s">'{"tool_input":{"file_path":"'"$HOME"'/.claude/skills/minha-skill/SKILL.md"}}'</span> \
   | <span class="k">python3</span> scripts/hook_validar.py; <span class="k">echo</span> <span class="s">"exit code: $?"</span></pre>
   </div></div>
@@ -253,7 +253,7 @@
 <section id="exemplos"><div class="wrap">
   <span class="chip">Examples</span>
   <h2>Real output</h2>
-  <p class="sub">Run on copies of four INEMA skills, in a scratch folder, without touching the originals. The full report is in <a href="https://github.com/inematds/auditar-skills/blob/main/examples/relatorio-inema.md" target="_blank" rel="noopener">examples/relatorio-inema.md</a> (in Portuguese).</p>
+  <p class="sub">Run on copies of four ARCKHé AI skills, in a scratch folder, without touching the originals. The full report is in <a href="https://github.com/linnoff88-dev/auditar-skills/blob/main/examples/relatorio-arckhe.md" target="_blank" rel="noopener">examples/relatorio-arckhe.md</a> (in Portuguese).</p>
   <div class="grid g2">
     <div class="card"><h3>Validator table</h3>
 <pre>Skill             Errors  Warnings  Notes  Rules
@@ -277,10 +277,10 @@ clima                  0         1      0  DS3</pre></div>
 <section id="roadmap"><div class="wrap">
   <span class="chip">Roadmap</span>
   <h2>Where it is and where it is going</h2>
-  <p class="sub">The mirror follows the original; the recipe grows as it is used on INEMA's skills.</p>
-  <div class="phase"><div class="tag">Done</div><div class="d"><strong>Mirror + recipe</strong><span>skill-creator-plus in <code>skill-creator-plus/</code>, validator adapted for PT/ES (DS3, ST5 and CT9, with a test), INEMA recipe, <code>relatorio.py</code>, <code>hook_validar.py</code>, guide and README in PT, EN and ES.</span></div></div>
-  <div class="phase"><div class="tag">Next</div><div class="d"><strong>Run the recipe on INEMA's skills</strong><span>Starting with formato-curso-v2, video-ia, media-use and the inemaref-* skills. Mechanical fixes first (ST5 contents list, ST4 one level deep).</span></div></div>
-  <div class="phase"><div class="tag">Always</div><div class="d"><strong>Track the original</strong><span>When RoboNuggets updates the rules, the <code>skill-creator-plus/</code> folder is copied again and the INEMA change to the validator is reapplied.</span></div></div>
+  <p class="sub">The mirror follows the original; the recipe grows as it is used on ARCKHé AI's skills.</p>
+  <div class="phase"><div class="tag">Done</div><div class="d"><strong>Mirror + recipe</strong><span>skill-creator-plus in <code>skill-creator-plus/</code>, validator adapted for PT/ES (DS3, ST5 and CT9, with a test), ARCKHé AI recipe, <code>relatorio.py</code>, <code>hook_validar.py</code>, guide and README in PT, EN and ES.</span></div></div>
+  <div class="phase"><div class="tag">Next</div><div class="d"><strong>Run the recipe on ARCKHé AI's skills</strong><span>Starting with formato-curso-v2, video-ia, media-use and the arckheref-* skills. Mechanical fixes first (ST5 contents list, ST4 one level deep).</span></div></div>
+  <div class="phase"><div class="tag">Always</div><div class="d"><strong>Track the original</strong><span>When RoboNuggets updates the rules, the <code>skill-creator-plus/</code> folder is copied again and the ARCKHé AI change to the validator is reapplied.</span></div></div>
 </div></section>
 
 <footer>
@@ -288,8 +288,8 @@ clima                  0         1      0  DS3</pre></div>
     <div class="pill">Python 3.8+</div><div class="pill">Claude Code</div><div class="pill">Codex</div><div class="pill">MIT</div>
     <p style="margin-top:18px">Based on <a href="https://github.com/robonuggets/skill-creator-plus" target="_blank" rel="noopener">robonuggets/skill-creator-plus</a> (MIT, RoboNuggets). Not affiliated with Anthropic.</p>
     <p>Auditar Skills · recipe and guide in PT/EN/ES ·
-      <a href="https://github.com/inematds/auditar-skills">inematds/auditar-skills</a> ·
-      <a href="https://inema.club">INEMA.CLUB</a></p>
+      <a href="https://github.com/linnoff88-dev/auditar-skills">linnoff88-dev/auditar-skills</a> ·
+      <a href="https://linnoff88-dev.github.io">ARCKHé AI.CLUB</a></p>
   </div>
 </footer>
 

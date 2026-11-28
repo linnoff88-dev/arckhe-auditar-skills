@@ -2,22 +2,22 @@
 
 **🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
 
-[![Auditar Skills](guia/assets/banner.jpg)](https://inematds.github.io/auditar-skills/guia/)
+[![Auditar Skills](guia/assets/banner.jpg)](https://linnoff88-dev.github.io/auditar-skills/guia/)
 
-> Baseado em [robonuggets/skill-creator-plus](https://github.com/robonuggets/skill-creator-plus) (MIT, RoboNuggets). Todo o crédito do validador, das 46 regras e da skill à RoboNuggets. O INEMA acrescentou a receita, dois scripts e o guia PT/EN/ES.
+> Baseado em [robonuggets/skill-creator-plus](https://github.com/robonuggets/skill-creator-plus) (MIT, RoboNuggets). Todo o crédito do validador, das 46 regras e da skill à RoboNuggets. O ARCKHé AI acrescentou a receita, dois scripts e o guia PT/EN/ES.
 
 ## O que é
 
-Auditar Skills é um kit aberto para conferir as skills do seu agente, as pastas com um arquivo SKILL.md que o Claude Code e o Codex usam para fazer uma tarefa sempre do mesmo jeito. Ele traz o skill-creator-plus, uma skill da RoboNuggets que confere cada skill contra 46 regras (a maioria da documentação oficial da Anthropic, algumas da prática), e uma receita do INEMA em cinco passos: rodar o validador, pegar as cinco piores, gerar um relatório, testar com e sem a skill e ligar um hook. Serve para quem já tem várias skills e não sabe quais estão quebradas. Precisa só de Python 3.8 ou mais novo, e nenhuma skill muda sem você aprovar.
+Auditar Skills é um kit aberto para conferir as skills do seu agente, as pastas com um arquivo SKILL.md que o Claude Code e o Codex usam para fazer uma tarefa sempre do mesmo jeito. Ele traz o skill-creator-plus, uma skill da RoboNuggets que confere cada skill contra 46 regras (a maioria da documentação oficial da Anthropic, algumas da prática), e uma receita do ARCKHé AI em cinco passos: rodar o validador, pegar as cinco piores, gerar um relatório, testar com e sem a skill e ligar um hook. Serve para quem já tem várias skills e não sabe quais estão quebradas. Precisa só de Python 3.8 ou mais novo, e nenhuma skill muda sem você aprovar.
 
 ## 📖 Guia de uso
 
-Guia completo (landing + passo a passo): **https://inematds.github.io/auditar-skills/guia/**
+Guia completo (landing + passo a passo): **https://linnoff88-dev.github.io/auditar-skills/guia/**
 
 ## Comece em três comandos
 
 ```bash
-git clone https://github.com/inematds/auditar-skills ~/auditar-skills
+git clone https://github.com/linnoff88-dev/auditar-skills ~/auditar-skills
 cd ~/auditar-skills
 python3 skill-creator-plus/scripts/validate_skill.py --all ~/.claude/skills    # Codex: ~/.agents/skills
 ```
@@ -31,7 +31,7 @@ python3 skill-creator-plus/scripts/validate_skill.py --all ~/.claude/skills --js
   | python3 scripts/relatorio.py - --top 5 > relatorio.md
 ```
 
-## A receita INEMA
+## A receita ARCKHé AI
 
 1. **Validador em todas** as skills da pasta.
 2. **As 5 piores** (ou as 5 que você mais usa) com `scripts/relatorio.py`.
@@ -39,12 +39,12 @@ python3 skill-creator-plus/scripts/validate_skill.py --all ~/.claude/skills --js
 4. **Teste com e sem** a skill antes de apagar linha "prescritiva demais".
 5. **Hook** que roda o validador toda vez que um `SKILL.md` é salvo (`scripts/hook_validar.py`, exemplo de `settings.json`; não vem instalado).
 
-Passo a passo completo, com os comandos e o exemplo de hook: [docs/receita-inema.md](docs/receita-inema.md).
-Exemplo real de relatório, sobre cópias de quatro skills do INEMA: [examples/relatorio-inema.md](examples/relatorio-inema.md).
+Passo a passo completo, com os comandos e o exemplo de hook: [docs/receita-arckhe.md](docs/receita-arckhe.md).
+Exemplo real de relatório, sobre cópias de quatro skills do ARCKHé AI: [examples/relatorio-arckhe.md](examples/relatorio-arckhe.md).
 
 ## Instalar a skill
 
-A pasta `skill-creator-plus/` é a skill original, com uma única mudança INEMA no validador (ver abaixo). Copie para a sua pasta de skills:
+A pasta `skill-creator-plus/` é a skill original, com uma única mudança ARCKHé AI no validador (ver abaixo). Copie para a sua pasta de skills:
 
 ```bash
 cp -r ~/auditar-skills/skill-creator-plus ~/.claude/skills/    # Claude Code
@@ -61,14 +61,14 @@ Depois, numa sessão nova, peça em linguagem normal. Três modos:
 
 A skill passa no próprio validador: 0 erros, 1 aviso (a imagem do README original não é citada no SKILL.md).
 
-## Mudança INEMA no validador
+## Mudança ARCKHé AI no validador
 
-O `validate_skill.py` original só reconhece inglês e dava alarme falso em skills escritas em português ou espanhol. O espelho INEMA muda três expressões regulares, nada mais (marcadas com `# Mudança INEMA` no código):
+O `validate_skill.py` original só reconhece inglês e dava alarme falso em skills escritas em português ou espanhol. O espelho ARCKHé AI muda três expressões regulares, nada mais (marcadas com `# Mudança ARCKHé AI` no código):
 
-| Regra | Original | No espelho INEMA |
+| Regra | Original | No espelho ARCKHé AI |
 |---|---|---|
 | DS3 (quando usar) | só "Use when…", "whenever", "triggers on"… | aceita também "Use quando…", "quando usar", "sempre que", "Gatilhos", "acione quando", "Úsala cuando…", "cuando el usuario", "disparadores" |
-| ST5 (sumário) | só o título "Contents" / "Table of contents" | aceita também "Sumário", "Índice", "Conteúdo", "Contenido", "Tabla de contenido(s)" |
+| ST5 (sumário) | só o título "Contents" / "Table of contents" | aceita também "Sumário", "índice", "Conteúdo", "Contenido", "Tabla de contenido(s)" |
 | CT9 (TODO) | qualquer "TODO" em caixa alta | "TODO" só com `:` ou `(` depois (ou no fim da linha); "quebraria TODO o markup" deixa de contar. FIXME continua valendo sempre |
 
 Efeito medido nas 123 skills de `~/.claude/skills` (6/10/2026): DS3 caiu de 75 para 38 avisos, CT9 de 10 para 2 erros, ST5 de 248 para 246. Teste mínimo: `python3 tests/test_validador_ptes.py` (13 casos, inclusive os que devem continuar falhando).
@@ -83,11 +83,11 @@ skill-creator-plus/            a skill original da RoboNuggets (MIT); só o vali
   scripts/init_skill.py        cria uma skill nova que já passa no validador
   examples/                    skill quebrada de exemplo, saída do validador e relatório
   README.md                    o README original, em inglês
-scripts/relatorio.py           INEMA: relatório Markdown das N piores a partir do --json
-scripts/hook_validar.py        INEMA: hook PostToolUse que valida ao salvar um SKILL.md
-docs/receita-inema.md          INEMA: a receita em cinco passos
-examples/relatorio-inema.md    INEMA: relatório real de quatro skills
-tests/test_validador_ptes.py   INEMA: teste das mudanças PT/ES no validador
+scripts/relatorio.py           ARCKHé AI: relatório Markdown das N piores a partir do --json
+scripts/hook_validar.py        ARCKHé AI: hook PostToolUse que valida ao salvar um SKILL.md
+docs/receita-arckhe.md          ARCKHé AI: a receita em cinco passos
+examples/relatorio-arckhe.md    ARCKHé AI: relatório real de quatro skills
+tests/test_validador_ptes.py   ARCKHé AI: teste das mudanças PT/ES no validador
 guia/                          guia PT, EN e ES (GitHub Pages)
 ```
 
@@ -95,4 +95,4 @@ As 46 regras, com a fonte de cada uma (documentação da Anthropic ou, nas famí
 
 ## Créditos e licença
 
-Baseado em [robonuggets/skill-creator-plus](https://github.com/robonuggets/skill-creator-plus) (MIT, RoboNuggets), feito por [RoboNuggets](https://www.skool.com/robonuggets). Os nomes dos modos de falha usados nas auditorias vêm do "writing-great-skills" de Matt Pocock. Sem vínculo com a Anthropic. Licença MIT, ver [LICENSE](LICENSE) (o texto original da RoboNuggets, mantido). Receita, scripts `relatorio.py` e `hook_validar.py` e guia PT/EN/ES: [INEMA.CLUB](https://inema.club).
+Baseado em [robonuggets/skill-creator-plus](https://github.com/robonuggets/skill-creator-plus) (MIT, RoboNuggets), feito por [RoboNuggets](https://www.skool.com/robonuggets). Os nomes dos modos de falha usados nas auditorias vêm do "writing-great-skills" de Matt Pocock. Sem vínculo com a Anthropic. Licença MIT, ver [LICENSE](LICENSE) (o texto original da RoboNuggets, mantido). Receita, scripts `relatorio.py` e `hook_validar.py` e guia PT/EN/ES: [ARCKHé AI.CLUB](https://linnoff88-dev.github.io).

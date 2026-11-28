@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Teste mínimo das mudanças INEMA no validate_skill.py (PT/ES).
+"""Teste mínimo das mudanças ARCKHé AI no validate_skill.py (PT/ES).
 
 Rodar na raiz do repositório:  python3 tests/test_validador_ptes.py
 Só biblioteca padrão. Cria skills temporárias, roda o validador com --json e

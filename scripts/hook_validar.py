@@ -6,7 +6,7 @@ SKILL.md, roda o validate_skill.py na pasta dele. Com erro, sai com código 2 e
 manda o resumo para stderr: o Claude Code devolve esse texto ao agente, que
 corrige na hora. Sem erro (ou outro arquivo), sai 0 em silêncio.
 
-Exemplo de configuração em docs/receita-inema.md. Só biblioteca padrão.
+Exemplo de configuração em docs/receita-arckhe.md. Só biblioteca padrão.
 """
 import json
 import subprocess
@@ -36,7 +36,7 @@ def main():
     if not pasta.is_dir():
         return 0
     if VALIDADOR is None:
-        print("hook_validar.py: validate_skill.py não encontrado; veja docs/receita-inema.md", file=sys.stderr)
+        print("hook_validar.py: validate_skill.py não encontrado; veja docs/receita-arckhe.md", file=sys.stderr)
         return 0  # sem validador, avisa e não bloqueia
     r = subprocess.run([sys.executable, str(VALIDADOR), str(pasta)],
                        capture_output=True, text=True, timeout=60)

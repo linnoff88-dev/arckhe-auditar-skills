@@ -126,7 +126,7 @@ WHEN_CUE_RE = re.compile(
     r"|reviewing|creating|writing|building)\b"
     r"|\bwhenever\b|\btrigger(?:s|ed)? (?:on|when|by|for)\b|\binvoke[sd]? (?:when|for|on)\b"
     r"|\bactivates? (?:when|for|on)\b|\bfor (?:requests|questions|tasks) (?:about|like|involving|that)\b"
-    # Mudança INEMA: pistas de "quando usar" em português e espanhol.
+    # Mudança ARCKHé AI: pistas de "quando usar" em português e espanhol.
     r"|\b[uú]s(?:e|ar|a|ala|alo|ela|e-a|e-o)\s+(?:(?:esta|essa|a|la)\s+(?:skill\s+)?)?(?:quando|sempre que|cuando|siempre que)\b"
     r"|\b(?:quando|cuando)\s+usar\b|\bsempre que\b|\bsiempre que\b"
     r"|\b(?:quando|cuando)\s+(?:o |a |el |la )?(?:usu[aá]ri[oa]|user|pessoa|persona)\b"
@@ -160,7 +160,7 @@ GO_BACK_RE = re.compile(
     r"\b(?:return|go back|loop back|jump back|back) to (?:step|stage|phase)\b"
     r"|\brepeat (?:from|until|steps?)\b|\bstart again from\b", re.I)
 CHECKBOX_RE = re.compile(r"^\s*[-*]\s+\[[ xX]\]\s")
-# Mudança INEMA: "TODO" só conta como marcador com ":" ou "(" depois (ou no fim da linha);
+# Mudança ARCKHé AI: "TODO" só conta como marcador com ":" ou "(" depois (ou no fim da linha);
 # em português "TODO"/"TODOS" em caixa alta é palavra comum ("quebraria TODO o markup").
 TODO_RE = re.compile(r"\bFIXME\b|\bTODO(?=\s*[:(]|\s*$)")
 TODO_COMMENT_RE = re.compile(r"(?:#|//|/\*|<!--)\s*(?:TODO|FIXME)\b")
@@ -175,7 +175,7 @@ REF_LINK_RE = re.compile(r"^\s{0,3}\[[^\]]+\]:\s*<?(\S+?)>?(?:\s|$)")
 LINK_TARGET_RE = re.compile(r"\]\([^)]*\)")
 PATHISH_RE = re.compile(r"[\w.${}/~-]*[\w-]\.[A-Za-z0-9]{1,8}\b")
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.*)")
-# Mudança INEMA: aceita também o título do sumário em português e espanhol.
+# Mudança ARCKHé AI: aceita também o título do sumário em português e espanhol.
 TOC_RE = re.compile(r"^\s{0,3}(?:#{1,6}\s*)?(?:\*\*)?(?:(?:table of )?contents|sum[aá]rio|[ií]ndice|conte[uú]do|contenidos?|tabla de contenidos?)(?:\*\*)?\s*:?\s*$", re.I)
 OLD_SECTION_RE = re.compile(r"^(?:old patterns?|legacy|history|changelog|deprecated)\b", re.I)
 KEY_RE = re.compile(r"^([A-Za-z0-9_][\w.-]*)[ \t]*:(?:[ \t]+(.*?))?[ \t]*$")

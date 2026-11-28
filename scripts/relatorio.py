@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Gera um relatório Markdown a partir do JSON do validate_skill.py.
 
-Receita INEMA, passo 2-3: ordenar as skills pela quantidade de erros e avisos,
+Receita ARCKHé AI, passo 2-3: ordenar as skills pela quantidade de erros e avisos,
 pegar as N piores e listar o que falha em cada uma, agrupado por regra.
 
 Uso:
@@ -106,7 +106,7 @@ def montar(skills, top, com_notas):
                 out.append(f"  - … mais {len(achados) - 5}")
         out.append("")
 
-    out.append("## Próximos passos (receita INEMA)\n")
+    out.append("## Próximos passos (receita ARCKHé AI)\n")
     out.append("1. Para cada skill acima, peça ao agente o relatório completo (modo AUDIT) antes de editar.")
     out.append("2. Corrija primeiro os erros mecânicos (`ST5` sumário, `ST4` um nível, `DS1` tamanho da descrição).")
     out.append("3. Antes de apagar linha \"prescritiva\", rode a mesma tarefa com e sem a skill e compare.")

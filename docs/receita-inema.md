@@ -1,4 +1,4 @@
-# Receita INEMA: auditar as suas skills
+# Receita ARCKHé AI: auditar as suas skills
 
 Cinco passos para auditar uma biblioteca de skills (Claude Code ou Codex) sem gastar uma tarde inteira.
 Medir antes de reescrever: o validador diz o que falha e onde; você decide o que corrigir.
@@ -30,7 +30,7 @@ Os IDs (FM, DS, ST, CT, WF, SC, NM, HK, TS, LB) estão explicados em [references
 O validador só lê. Não altera nenhuma skill.
 
 Neste espelho o validador entende skills em português e espanhol ("Use quando…", "## Sumário", a palavra "TODO"
-sem dois-pontos). É a única mudança no código original; detalhes na seção "Mudança INEMA no validador" do README.
+sem dois-pontos). é a única mudança no código original; detalhes na seção "Mudança ARCKHé AI no validador" do README.
 
 ## 2. Pegar as 5 piores
 
@@ -39,15 +39,15 @@ python3 skill-creator-plus/scripts/validate_skill.py --all ~/.claude/skills --js
 python3 scripts/relatorio.py val.json --top 5 > relatorio.md
 ```
 
-`scripts/relatorio.py` (deste espelho INEMA) ordena por erros, depois avisos, e detalha as N piores agrupando
+`scripts/relatorio.py` (deste espelho ARCKHé AI) ordena por erros, depois avisos, e detalha as N piores agrupando
 os achados por regra. Também lê da entrada padrão:
 
 ```bash
 python3 skill-creator-plus/scripts/validate_skill.py --all ~/.claude/skills --json | python3 scripts/relatorio.py - --top 5
 ```
 
-Use `--notas` para incluir as notas (NOTE). Exemplo real, gerado sobre cópias de 4 skills do INEMA:
-[examples/relatorio-inema.md](../examples/relatorio-inema.md).
+Use `--notas` para incluir as notas (NOTE). Exemplo real, gerado sobre cópias de 4 skills do ARCKHé AI:
+[examples/relatorio-arckhe.md](../examples/relatorio-arckhe.md).
 
 Critério alternativo: em vez das 5 com mais erros, as 5 que você mais usa. Skill de terceiro (HyperFrames,
 Remotion etc.) só se reporta ao autor; corrija as suas.
@@ -135,4 +135,4 @@ depois que a skill é usada na sessão. A regra HK1 do validador aponta onde iss
 ---
 
 Baseado em [robonuggets/skill-creator-plus](https://github.com/robonuggets/skill-creator-plus) (MIT, RoboNuggets).
-Receita, `relatorio.py` e `hook_validar.py`: INEMA.CLUB.
+Receita, `relatorio.py` e `hook_validar.py`: ARCKHé AI.CLUB.

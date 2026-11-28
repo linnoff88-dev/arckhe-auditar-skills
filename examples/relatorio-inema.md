@@ -81,7 +81,7 @@ Pasta: `teste-skills/clima`
 - **DS3** (aviso, 1x)
   - `SKILL.md:3` description says what the skill does but not when to use it. Add a "Use when ..." clause with the words people actually type.
 
-## Próximos passos (receita INEMA)
+## Próximos passos (receita ARCKHé AI)
 
 1. Para cada skill acima, peça ao agente o relatório completo (modo AUDIT) antes de editar.
 2. Corrija primeiro os erros mecânicos (`ST5` sumário, `ST4` um nível, `DS1` tamanho da descrição).

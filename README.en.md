@@ -2,22 +2,22 @@
 
 **🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
 
-[![Auditar Skills](guia/assets/banner-en.jpg)](https://inematds.github.io/auditar-skills/guia/en/)
+[![Auditar Skills](guia/assets/banner-en.jpg)](https://linnoff88-dev.github.io/auditar-skills/guia/en/)
 
-> Based on [robonuggets/skill-creator-plus](https://github.com/robonuggets/skill-creator-plus) (MIT, RoboNuggets). All credit for the validator, the 46 rules and the skill goes to RoboNuggets. INEMA added the recipe, two scripts and the PT/EN/ES guide.
+> Based on [robonuggets/skill-creator-plus](https://github.com/robonuggets/skill-creator-plus) (MIT, RoboNuggets). All credit for the validator, the 46 rules and the skill goes to RoboNuggets. ARCKHé AI added the recipe, two scripts and the PT/EN/ES guide.
 
 ## What it is
 
-Auditar Skills is an open kit to check your agent's skills, the folders with a SKILL.md file that Claude Code and Codex use to do a task the same way every time. It ships skill-creator-plus, a RoboNuggets skill that checks each skill against 46 rules (most from Anthropic's official docs, some from practice), plus a five-step INEMA recipe: run the validator, take the five worst, generate a report, test with and without the skill and turn on a hook. It is for anyone who already has several skills and does not know which ones are broken. All it needs is Python 3.8 or newer, and no skill changes without your approval.
+Auditar Skills is an open kit to check your agent's skills, the folders with a SKILL.md file that Claude Code and Codex use to do a task the same way every time. It ships skill-creator-plus, a RoboNuggets skill that checks each skill against 46 rules (most from Anthropic's official docs, some from practice), plus a five-step ARCKHé AI recipe: run the validator, take the five worst, generate a report, test with and without the skill and turn on a hook. It is for anyone who already has several skills and does not know which ones are broken. All it needs is Python 3.8 or newer, and no skill changes without your approval.
 
 ## 📖 User guide
 
-Full guide (landing + step by step): **https://inematds.github.io/auditar-skills/guia/en/**
+Full guide (landing + step by step): **https://linnoff88-dev.github.io/auditar-skills/guia/en/**
 
 ## Start with three commands
 
 ```bash
-git clone https://github.com/inematds/auditar-skills ~/auditar-skills
+git clone https://github.com/linnoff88-dev/auditar-skills ~/auditar-skills
 cd ~/auditar-skills
 python3 skill-creator-plus/scripts/validate_skill.py --all ~/.claude/skills    # Codex: ~/.agents/skills
 ```
@@ -31,7 +31,7 @@ python3 skill-creator-plus/scripts/validate_skill.py --all ~/.claude/skills --js
   | python3 scripts/relatorio.py - --top 5 > relatorio.md
 ```
 
-## The INEMA recipe
+## The ARCKHé AI recipe
 
 1. **Validator on all** the skills in the folder.
 2. **The 5 worst** (or the 5 you use most) with `scripts/relatorio.py`.
@@ -39,12 +39,12 @@ python3 skill-creator-plus/scripts/validate_skill.py --all ~/.claude/skills --js
 4. **Test with and without** the skill before deleting a "too prescriptive" line.
 5. **Hook** that runs the validator every time a `SKILL.md` is saved (`scripts/hook_validar.py`, sample `settings.json`; not installed by default).
 
-Full step by step, with the commands and the hook example: [docs/receita-inema.md](docs/receita-inema.md) (in Portuguese).
-Real sample report, on copies of four INEMA skills: [examples/relatorio-inema.md](examples/relatorio-inema.md) (in Portuguese).
+Full step by step, with the commands and the hook example: [docs/receita-arckhe.md](docs/receita-arckhe.md) (in Portuguese).
+Real sample report, on copies of four ARCKHé AI skills: [examples/relatorio-arckhe.md](examples/relatorio-arckhe.md) (in Portuguese).
 
 ## Install the skill
 
-The `skill-creator-plus/` folder is the original skill, with a single INEMA change to the validator (see below). Copy it to your skills folder:
+The `skill-creator-plus/` folder is the original skill, with a single ARCKHé AI change to the validator (see below). Copy it to your skills folder:
 
 ```bash
 cp -r ~/auditar-skills/skill-creator-plus ~/.claude/skills/    # Claude Code
@@ -61,14 +61,14 @@ Then, in a new session, ask in plain words. Three modes:
 
 The skill passes its own validator: 0 errors, 1 warning (the original README image is not mentioned in SKILL.md).
 
-## INEMA change to the validator
+## ARCKHé AI change to the validator
 
-The original `validate_skill.py` only recognises English and raised false alarms on skills written in Portuguese or Spanish. The INEMA mirror changes three regular expressions, nothing else (marked `# Mudança INEMA` in the code):
+The original `validate_skill.py` only recognises English and raised false alarms on skills written in Portuguese or Spanish. The ARCKHé AI mirror changes three regular expressions, nothing else (marked `# Mudança ARCKHé AI` in the code):
 
-| Rule | Original | In the INEMA mirror |
+| Rule | Original | In the ARCKHé AI mirror |
 |---|---|---|
 | DS3 (when to use) | only "Use when…", "whenever", "triggers on"… | also accepts "Use quando…", "quando usar", "sempre que", "Gatilhos", "acione quando", "Úsala cuando…", "cuando el usuario", "disparadores" |
-| ST5 (contents list) | only the heading "Contents" / "Table of contents" | also accepts "Sumário", "Índice", "Conteúdo", "Contenido", "Tabla de contenido(s)" |
+| ST5 (contents list) | only the heading "Contents" / "Table of contents" | also accepts "Sumário", "índice", "Conteúdo", "Contenido", "Tabla de contenido(s)" |
 | CT9 (TODO) | any upper-case "TODO" | "TODO" only when followed by `:` or `(` (or at the end of a line); the Portuguese word "TODO" ("all") no longer counts. FIXME always counts |
 
 Measured on the 123 skills in `~/.claude/skills` (2026-10-06): DS3 went from 75 to 38 warnings, CT9 from 10 to 2 errors, ST5 from 248 to 246. Minimal test: `python3 tests/test_validador_ptes.py` (13 cases, including the ones that must still fail).
@@ -83,11 +83,11 @@ skill-creator-plus/            the original RoboNuggets skill (MIT); only the va
   scripts/init_skill.py        scaffolds a new skill that already passes the validator
   examples/                    broken sample skill, validator output and report
   README.md                    the original README
-scripts/relatorio.py           INEMA: Markdown report of the N worst from --json
-scripts/hook_validar.py        INEMA: PostToolUse hook that validates when a SKILL.md is saved
-docs/receita-inema.md          INEMA: the five-step recipe (in Portuguese)
-examples/relatorio-inema.md    INEMA: real report on four skills (in Portuguese)
-tests/test_validador_ptes.py   INEMA: test of the PT/ES validator changes
+scripts/relatorio.py           ARCKHé AI: Markdown report of the N worst from --json
+scripts/hook_validar.py        ARCKHé AI: PostToolUse hook that validates when a SKILL.md is saved
+docs/receita-arckhe.md          ARCKHé AI: the five-step recipe (in Portuguese)
+examples/relatorio-arckhe.md    ARCKHé AI: real report on four skills (in Portuguese)
+tests/test_validador_ptes.py   ARCKHé AI: test of the PT/ES validator changes
 guia/                          guide in PT, EN and ES (GitHub Pages)
 ```
 
@@ -95,4 +95,4 @@ The 46 rules, each with its source (Anthropic's documentation or, for the NM and
 
 ## Credits and license
 
-Based on [robonuggets/skill-creator-plus](https://github.com/robonuggets/skill-creator-plus) (MIT, RoboNuggets), made by [RoboNuggets](https://www.skool.com/robonuggets). The failure-mode names used in audits come from Matt Pocock's "writing-great-skills". Not affiliated with Anthropic. MIT license, see [LICENSE](LICENSE) (RoboNuggets' original text, kept). Recipe, the `relatorio.py` and `hook_validar.py` scripts and the PT/EN/ES guide: [INEMA.CLUB](https://inema.club).
+Based on [robonuggets/skill-creator-plus](https://github.com/robonuggets/skill-creator-plus) (MIT, RoboNuggets), made by [RoboNuggets](https://www.skool.com/robonuggets). The failure-mode names used in audits come from Matt Pocock's "writing-great-skills". Not affiliated with Anthropic. MIT license, see [LICENSE](LICENSE) (RoboNuggets' original text, kept). Recipe, the `relatorio.py` and `hook_validar.py` scripts and the PT/EN/ES guide: [ARCKHé AI.CLUB](https://linnoff88-dev.github.io).
